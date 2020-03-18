@@ -6,6 +6,7 @@ import config
 import pickle
 from nltk.tag.hunpos import HunposTagger
 
+nltk.download('punkt')
 conversion = None
 
 def segment(data, pos_tagger):

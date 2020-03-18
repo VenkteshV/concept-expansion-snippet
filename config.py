@@ -8,26 +8,26 @@ tmp = 'tmp/'
 
 def init():
     if not os.path.exists(data):
-        os.mkdirs(data)
+        os.mkdir(data)
     if not os.path.exists(db):
-        os.mkdirs(db)
+        os.mkdir(db)
     if not os.path.exists(model):
-        os.mkdirs(model)
+        os.mkdir(model)
     if not os.path.exists(result):
-        os.mkdirs(result)
+        os.mkdir(result)
     if not os.path.exists(tmp):
-        os.mkdirs(tmp)
+        os.mkdir(tmp)
 
 class PathList:
     def __init__(self):  # default setting
         # word vectors file
-        self.zh_model = model+'sgns.baidubaike.bigram-char'
+        # self.zh_model = model+'sgns.baidubaike.bigram-char'
         self.en_model = model+'glove.6B.200d.txt'
         # zh files
-        self.jieba_dict = model+'dict.txt'
-        self.zh_kp_list = model+'zh_kp_list'
-        self.zh_stopwords = model+'zh_stopwords'
-        self.snippets_zh = db+'snippets_zh.db'
+        # self.jieba_dict = model+'dict.txt'
+        # self.zh_kp_list = model+'zh_kp_list'
+        # self.zh_stopwords = model+'zh_stopwords'
+        # self.snippets_zh = db+'snippets_zh.db'
         # en files
         self.en_kp_list = model+'en_kp_list'
         self.en_stopwords = model+'en_stopwords'
@@ -36,22 +36,22 @@ class PathList:
         if os.name == 'nt':  # windows
             self.hunpos_bin = model+'hunpos/hunpos-tag.exe'
         else:
-            self.hunpos_bin = model+'hunpos/hupos-tag'
+            self.hunpos_bin = model+'hunpos/hunpos-tag'
         # paths
         self.result = result+'result'
         self.tmp = tmp+'tmp'
         self.input = tmp+'input'
         self.seed = tmp+'seed'
         # example inputs
-        self.input_text = data+'example_text_zh.txt'
-        self.input_seed = data+'example_seed_zh.txt'
+        self.input_text = data+'example_text_en.txt'
+        self.input_seed = data+'example_seed_en.txt'
         #self.input_text = data+'en/captions/EN-Eco'
         #self.input_seed = data+'en/seeds/EN-Eco'
         self.no_seed =  False  # if true, every candidate will be a seed
 
 class Parameter:
     def __init__(self):  # default setting
-        self.language = 'zh'
+        self.language = 'en'
         self.task = 'extract'
         self.iter_time = 100
         self.max_num = -1
